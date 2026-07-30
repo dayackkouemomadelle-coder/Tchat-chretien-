@@ -1,0 +1,38 @@
+:root {
+  --primary: #1d4ed8;
+  --primary-dark: #1e3a8a;
+  --primary-light: #dbeafe;
+  --accent-gold: #d4a72c;
+  --accent-green: #16a34a;
+  --white: #ffffff;
+  --bg: #f4f7ff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.hidden { display: none !important; }
+
+/* --- ECRAN D'INSCRIPTION --- */
+#authScreen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--primary-dark), var(--primary) 60%, #3b82f6);
+  padding: 20px;
+}
+
+.auth-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  pad
