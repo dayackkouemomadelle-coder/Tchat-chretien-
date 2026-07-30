@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat Chrétien — Ensemble dans la foi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ECRAN D'INSCRIPTION -->
+<div id="authScreen">
+  <div class="auth-card">
+    <div class="auth-logo">✝️ Chat Chrétien</div>
+    <p class="auth-sub">Rejoins la communauté et discute avec des frères et sœurs dans la foi.</p>
+    <form id="authForm">
+      <label>Ton prénom</label>
+      <input type="text" id="nameInput" placeholder="Ex : Emmanuel" maxlength="30" required>
+
+      <label>Ton pays</label>
+      <select id="countryInput" required>
+        <option value="">-- Choisis ton pays --</option>
+        <option>Cameroun</option>
+        <option>Côte d'Ivoire</option>
+        <option>Sénégal</option>
+        <option>France</option>
+        <option>Belgique</option>
+        <option>Canada</option>
+        <option>Suisse</option>
+        <option>Gabon</option>
+        <option>Mali</option>
+        <option>Bénin</option>
+        <option>Togo</option>
+        <option>RD Congo</option>
+        <option>Congo</option>
+        <option>Burkina Faso</option>
+        <option>Niger</option>
+        <option>Tchad</option>
+        <option>Rwanda</option>
+        <option>Madagascar</option>
+        <option>Haïti</option>
+        <option>Autre</option>
+      </select>
+
+      <button type="submit">Entrer dans le chat</button>
+    </form>
+  </div>
+</div>
+
+<!-- APPLICATION -->
+<div id="app" class="hidden">
+  <header class="topbar">
+    <div class="brand">✝️ Chat Chrétien</div>
+    <div class="online-count"><span id="onlineDot"></span> <span id="onlineCount">0</span> en ligne</div>
+  </header>
+
+  <div class="layout">
+    <!-- BARRE LATERALE -->
+    <aside class="sidebar">
+      <div class="side-section">
+        <h3>Groupes</h3>
+        <ul id="groupList" class="group-list"></ul>
+        <form id="createGroupForm" class="inline-form">
+          <input type="text" id="newGroupName" placeholder="Nom du groupe" maxlength="40">
+          <button type="submit">+</button>
+        </form>
+      </div>
+
+      <div class="side-section">
+        <h3>🎵 Salle d'écoute</h3>
+        <form id="musicForm" class="inline-form-col">
+          <input type="text" id="musicUrl" placeholder="Lien MP3 direct">
+          <button type="submit">Lancer pour le groupe</button>
+        </form>
+        <div id="nowPlayingBox" class="now-playing hidden">
+          <div id="nowPlayingText"></div>
+          <audio id="musicPlayer" controls></audio>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <h3>🎮 Jeu</h3>
+        <button id="challengeBtn" class="secondary-btn">Défier quelqu'un au Morpion</button>
+      </div>
+    </aside>
+
+    <!-- ZONE DE CHAT -->
+    <main class="chat-area">
+      <div class="chat-header">
+        <span id="currentRoomName">Salon Général</span>
+      </div>
+
+      <div id="messages" class="messages"></div>
+
+      <form id="messageForm" class="message-bar">
+        <label class="icon-btn" title="Envoyer une photo">
+          📷
+          <input type="file" id="photoInput" accept="image/*" hidden>
+        </label>
+        <button type="button" id="recordBtn" class="icon-btn" title="Note vocale">🎤</button>
+        <input type="text" id="textInput" placeholder="Écris un message d'encouragement..." maxlength="1000" autocomplete="off">
+        <button type="submit" class="send-btn">➤</button>
+      </form>
+    </main>
+  </div>
+</div>
+
+<!-- INVITATION AU JEU -->
+<div id="gameInviteBox" class="toast hidden"></div>
+
+<!-- MODALE JEU -->
+<div id="gameModal" class="modal hidden">
+  <div class="modal-card">
+    <h3>Morpion ✝️</h3>
+    <div id="gameStatus"></div>
+    <div id="board" class="board"></div>
+    <button id="closeGame" class="secondary-btn">Fermer</button>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+  </html>
